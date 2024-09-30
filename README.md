@@ -1,2 +1,2 @@
-# machine_learning_py_-_r
-Machine learning project to predict customer purchase patterns using Python and R.
+# machine_learning_python_and_r
+Machine learning project leveraging multiple models to predict business outcomes.
