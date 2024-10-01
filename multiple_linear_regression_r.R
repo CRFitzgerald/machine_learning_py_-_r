@@ -21,3 +21,24 @@ regressor = lm(formula = Profit ~ .,
 
 # Predicting the Test set results
 y_pred = predict(regressor, newdata = test_set)
+
+# Building optimal model using Backward Elimination
+regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend + State, 
+               data = dataset)
+summary(regressor)
+
+# Removing State variable as it has no statistical significance 
+regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend, 
+               data = dataset)
+
+# Removing Administration as it lacks statistical significance
+regressor = lm(formula = Profit ~ R.D.Spend + Marketing.Spend, 
+               data = dataset)
+summary(regressor)
+
+# Try removing Marketing Spend as it has less statistical significance
+regressor = lm(formula = Profit ~ R.D.Spend, 
+               data = dataset)
+summary(regressor)
+
+# Final decision: standard error is minimized by including both R D Spend as well as Marketing Spend
